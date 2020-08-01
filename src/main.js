@@ -1,7 +1,9 @@
-const tripMain = document.querySelector('.trip-main');
-const tripControl = document.querySelector('.trip-controls');
-const switchTrip = tripControl.querySelector('h2');
-const tripEventSection = document.querySelector('.trip-events');
+'use strict';
+
+const tripMain = document.querySelector(`.trip-main`);
+const tripControl = document.querySelector(`.trip-controls`);
+const switchTrip = tripControl.querySelector(`h2`);
+const tripEventSection = document.querySelector(`.trip-events`);
 
 const createTripInfoTemplate = () => {
   return (
@@ -25,8 +27,8 @@ const createSwitchTripTemplate = () => {
       <a class="trip-tabs__btn  trip-tabs__btn--active" href="#">Table</a>
       <a class="trip-tabs__btn" href="#">Stats</a>
     </nav>`
-  )
-}
+  );
+};
 
 const createTripFilterTemplate = () => {
   return (
@@ -51,8 +53,8 @@ const createTripFilterTemplate = () => {
 
       <button class="visually-hidden" type="submit">Accept filter</button>
     </form>`
-  )
-}
+  );
+};
 
 const createTripSortTemplate = () => {
   return (
@@ -88,26 +90,25 @@ const createTripSortTemplate = () => {
 
       <span class="trip-sort__item  trip-sort__item--offers">Offers</span>
     </form>`
-  )
-}
+  );
+};
 
 const createTripDaysTemplate = () => {
   return (
     `<ul class="trip-days"></ul>`
-  )
-}
+  );
+};
 
 const render = (container, content, place) => {
   container.insertAdjacentHTML(place, content);
 };
 
-render(tripMain, createTripInfoTemplate(), 'afterbegin');
-render(switchTrip, createSwitchTripTemplate(), 'afterend');
-render(tripControl, createTripFilterTemplate(), 'beforeend');
+render(tripMain, createTripInfoTemplate(), `afterbegin`);
+render(switchTrip, createSwitchTripTemplate(), `afterend`);
+render(tripControl, createTripFilterTemplate(), `beforeend`);
 
-render(tripEventSection, createTripSortTemplate(), 'beforeend');
-render(tripEventSection, createTripDaysTemplate(), 'beforeend');
-const daysList = document.querySelector('.trip-days');
+render(tripEventSection, createTripSortTemplate(), `beforeend`);
+render(tripEventSection, createTripDaysTemplate(), `beforeend`);
 
 const createEditEventTemplate = () => {
   return (
@@ -309,8 +310,8 @@ const createEditEventTemplate = () => {
         </section>
       </section>
     </form>`
-  )
-}
+  );
+};
 
 const createTripDaysItemTemplate = () => {
   return (
@@ -321,16 +322,16 @@ const createTripDaysItemTemplate = () => {
       </div>
       <ul class="trip-events__list"></ul>
     </li>`
-  )
-}
+  );
+};
 
 // отрисовка одного дня
-render(tripEventSection, createEditEventTemplate(), 'beforeend');
-render(tripEventSection, createTripDaysItemTemplate(), 'beforeend');
-render(tripEventSection, createTripDaysItemTemplate(), 'beforeend');
-render(tripEventSection, createTripDaysItemTemplate(), 'beforeend');
+render(tripEventSection, createEditEventTemplate(), `beforeend`);
+render(tripEventSection, createTripDaysItemTemplate(), `beforeend`);
+render(tripEventSection, createTripDaysItemTemplate(), `beforeend`);
+render(tripEventSection, createTripDaysItemTemplate(), `beforeend`);
 
-const tripEventsList = document.querySelectorAll('.trip-events__list');
+const tripEventsList = document.querySelectorAll(`.trip-events__list`);
 
 const createTripEventTempate = () => {
   return (
@@ -364,8 +365,8 @@ const createTripEventTempate = () => {
         </button>
       </div>
     </li>`
-  )
-}
+  );
+};
 
 const createOfferItemTemplate = () => {
   return (
@@ -374,20 +375,19 @@ const createOfferItemTemplate = () => {
       &plus;
       &euro;&nbsp;<span class="event__offer-price">40</span>
     </li>`
-  )
-}
+  );
+};
 
-for (event of tripEventsList) {
+for (let event of tripEventsList) {
   // Отрисовка событий одного дня
-  render(event, createTripEventTempate(), 'beforeend');
-  render(event, createTripEventTempate(), 'beforeend');
-  render(event, createTripEventTempate(), 'beforeend');
+  render(event, createTripEventTempate(), `beforeend`);
+  render(event, createTripEventTempate(), `beforeend`);
+  render(event, createTripEventTempate(), `beforeend`);
 }
-const eventOffersList = document.querySelectorAll('.event__selected-offers');
+const eventOffersList = document.querySelectorAll(`.event__selected-offers`);
 
-for (offer of eventOffersList) {
-  render(offer, createOfferItemTemplate(), 'beforeend');
-  render(offer, createOfferItemTemplate(), 'beforeend');
-  render(offer, createOfferItemTemplate(), 'beforeend');
+for (let offer of eventOffersList) {
+  render(offer, createOfferItemTemplate(), `beforeend`);
+  render(offer, createOfferItemTemplate(), `beforeend`);
+  render(offer, createOfferItemTemplate(), `beforeend`);
 }
-
